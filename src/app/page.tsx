@@ -3,38 +3,22 @@ export default function Home() {
     <main className="min-h-screen bg-white text-gray-900">
 
       {/* Hero Section */}
-      <section className="py-24 text-center px-6">
+      <div className="py-28 text-center px-6">
         <h1 className="text-4xl md:text-5xl font-bold">
           Clare Rani Augustine
         </h1>
 
-        <p className="mt-4 text-xl text-gray-600">
-          Full Stack Software Developer | React | TypeScript | API-Driven Systems
+        <p className="mt-4 text-xl text-gray-700">
+          Full Stack Software Engineer
         </p>
 
-        <p className="mt-6 max-w-2xl mx-auto text-gray-500 leading-relaxed">
-          8+ years of experience building enterprise-grade web applications 
-          across fintech, IoT, and government systems. 
-          Specialized in scalable architecture, RESTful integrations, 
-          accessibility, and performance optimization.
+         
+
+        <p className="mt-6 max-w-2xl mx-auto text-gray-600 leading-relaxed">
+          8+ years of experience designing and delivering scalable, enterprise-grade web platforms across fintech, IoT, and government domains. Specialized in React and TypeScript-based SPA architectures, RESTful API integrations, and microservices-driven systems. Experienced in multi-tenant application design, MongoDB and relational databases, and cloud-native deployments on AWS and GCP, with a strong focus on performance optimization, accessibility (WCAG), and maintainable architecture.
         </p>
 
-        <div className="mt-8 flex justify-center gap-4">
-          <a
-            href="/projects"
-            className="px-6 py-3 bg-black text-white rounded-lg hover:opacity-90"
-          >
-            View Projects
-          </a>
-
-          <a
-            href="/Clare_Resume.pdf"
-            className="px-6 py-3 border border-black rounded-lg hover:bg-gray-100"
-          >
-            Download Resume
-          </a>
-        </div>
-      </section>
+      </div>
 
     </main>
   );

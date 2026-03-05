@@ -1,12 +1,9 @@
 export default function About() {
   return (
-    <main className="min-h-screen bg-white text-gray-900 px-6 py-16">
+    <section className="main-bg min-h-screen text-gray-900 px-6 py-16">
       <div className="max-w-4xl mx-auto">
 
         <h2 className="text-3xl font-bold mb-8">About Me</h2>
-
-
-
 
 
         <p className="text-gray-600 leading-relaxed mb-6">
@@ -69,16 +66,7 @@ Performance optimization and accessibility </li>
           <li>Writing clean, testable code</li>
         </ul>
 
-
-
-
-
-
-
-
-
-
       </div>
-    </main>
+    </section>
   );
 }

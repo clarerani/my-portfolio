@@ -1,6 +1,6 @@
 export default function Projects() {
   return (
-    <main className="min-h-screen bg-white text-gray-900 px-6 py-16">
+    <section className="main-bg min-h-screen text-gray-900 px-6 py-16">
       <div className="max-w-5xl mx-auto">
 
         <h2 className="text-4xl font-bold mb-12">Projects</h2>
@@ -168,6 +168,6 @@ e driven data capture aligned with government policy requirements</li>
         </section>
 
       </div>
-    </main>
+    </section>
   );
 }

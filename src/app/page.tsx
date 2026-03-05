@@ -1,25 +1,17 @@
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white text-gray-900">
-
-      {/* Hero Section */}
-      <div className="py-28 text-center px-6">
-        <h1 className="text-4xl md:text-5xl font-bold">
+    <main className="min-h-[calc(100vh-150px)]  text-gray-900 flex items-center justify-center main-bg">
+       <div className="max-w-3xl text-center px-6">
+        <h1 className="text-5xl md:text-6xl font-bold tracking-tight">
           Clare Rani Augustine
         </h1>
-
         <p className="mt-4 text-xl text-gray-700">
           Full Stack Software Engineer
         </p>
-
-         
-
-        <p className="mt-6 max-w-2xl mx-auto text-gray-600 leading-relaxed">
-          8+ years of experience designing and delivering scalable, enterprise-grade web platforms across fintech, IoT, and government domains. Specialized in React and TypeScript-based SPA architectures, RESTful API integrations, and microservices-driven systems. Experienced in multi-tenant application design, MongoDB and relational databases, and cloud-native deployments on AWS and GCP, with a strong focus on performance optimization, accessibility (WCAG), and maintainable architecture.
+        <p className="mt-6 text-gray-600 leading-relaxed">
+          Building scalable React and TypeScript applications for fintech, IoT, and enterprise platforms with a focus on performance, accessibility, and maintainable architecture.
         </p>
-
       </div>
-
     </main>
   );
 }

@@ -17,9 +17,9 @@ export default function Projects() {
           </p>
 
           <ul className="mt-4 list-disc pl-6 text-gray-600 space-y-2">
-            <li>Built modular React components for underwriting and approval workflows</li>
-            <li>Integrated microservices for data extraction and third-party integrations</li>
-            <li>Implemented intelligent alerts and role-based dashboards</li>
+            <li>Built modular React components</li>
+            <li>Integrated REST API's and third-party integrations</li>
+            <li>Implemented role-based dashboards</li>
             <li>Optimized performance</li>
             <li>Collaborated across cross-functional teams in an agile environment</li>
           </ul>

@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clare Rani Augustine | Front-End Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0d1117;
+    --ink-muted: #4a5568;
+    --ink-subtle: #718096;
+    --surface: #ffffff;
+    --surface-2: #f7f8fa;
+    --surface-3: #eef1f6;
+    --accent: #1a56db;
+    --accent-light: #e8effd;
+    --accent-mid: #3b82f6;
+    --gold: #b45309;
+    --gold-light: #fef3c7;
+    --border: rgba(0,0,0,0.08);
+    --border-strong: rgba(0,0,0,0.15);
+    --radius: 12px;
+    --radius-sm: 6px;
+    --transition: 0.22s cubic-bezier(.4,0,.2,1);
+    --font-serif: 'DM Serif Display', Georgia, serif;
+    --font-sans: 'DM Sans', system-ui, sans-serif;
+    --shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+    --shadow-hover: 0 2px 8px rgba(0,0,0,0.08), 0 8px 32px rgba(0,0,0,0.07);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--surface);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ────────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 clamp(1.5rem, 5vw, 4rem);
+    height: 64px;
+  }
+
+  .nav-logo {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+  .nav-links a {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--ink-muted);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color var(--transition);
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-cta {
+    background: var(--ink) !important;
+    color: var(--surface) !important;
+    padding: 0.5rem 1.25rem !important;
+    border-radius: 2rem !important;
+    font-weight: 500 !important;
+    transition: background var(--transition) !important;
+  }
+  .nav-cta:hover { background: var(--accent) !important; color: var(--surface) !important; }
+
+  /* ── SECTIONS ───────────────────────────────────── */
+  section { padding: clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem); }
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  /* ── HERO ───────────────────────────────────────── */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding-top: 64px;
+    background: var(--surface);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg-line {
+    position: absolute;
+    top: 0; right: 0;
+    width: 55%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--accent-light) 0%, transparent 60%);
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.35rem 1rem;
+    border-radius: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  h1.hero-name {
+    font-family: var(--font-serif);
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+
+  h1.hero-name em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-title {
+    font-size: 1.15rem;
+    font-weight: 300;
+    color: var(--ink-muted);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.01em;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    color: var(--ink-muted);
+    line-height: 1.75;
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: 2rem;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all var(--transition);
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: var(--surface);
+  }
+  .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--border-strong);
+  }
+  .btn-ghost:hover { background: var(--surface-2); transform: translateY(-1px); }
+
+  /* Hero stats */
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+  .stat-label { font-size: 0.78rem; color: var(--ink-subtle); text-transform: uppercase; letter-spacing: 0.05em; }
+
+  /* Hero visual side */
+  .hero-visual {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .hero-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    box-shadow: var(--shadow-card);
+    transition: box-shadow var(--transition), transform var(--transition);
+  }
+  .hero-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+
+  .hero-card-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-subtle);
+    margin-bottom: 0.75rem;
+  }
+
+  .metric-row { display: flex; gap: 2rem; }
+  .metric { }
+  .metric-val {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .metric-val span { font-size: 1rem; color: var(--accent); font-family: var(--font-sans); font-weight: 500; }
+  .metric-desc { font-size: 0.78rem; color: var(--ink-subtle); margin-top: 0.2rem; }
+
+  .tech-pill-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .tech-pill {
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 0.3rem 0.75rem;
+    border-radius: 2rem;
+    background: var(--surface-2);
+    color: var(--ink-muted);
+    border: 1px solid var(--border);
+    transition: all var(--transition);
+  }
+  .tech-pill.accent { background: var(--accent-light); color: var(--accent); border-color: transparent; }
+  .tech-pill:hover { background: var(--accent-light); color: var(--accent); border-color: transparent; }
+
+  /* ── IMPACT STRIP ───────────────────────────────── */
+  #impact {
+    background: var(--ink);
+    color: var(--surface);
+    padding: 4rem clamp(1.5rem, 5vw, 4rem);
+  }
+
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .impact-item { text-align: center; padding: 1rem; }
+  .impact-num {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    color: var(--surface);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .impact-num em { font-style: normal; color: #60a5fa; }
+  .impact-text { font-size: 0.875rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+  /* ── SECTION HEADERS ────────────────────────────── */
+  .section-header { margin-bottom: 3rem; }
+  .section-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+  .section-title em { font-style: italic; color: var(--accent); }
+  .section-sub {
+    font-size: 1rem;
+    color: var(--ink-muted);
+    margin-top: 0.75rem;
+    max-width: 520px;
+    line-height: 1.7;
+  }
+
+  /* ── SKILLS ─────────────────────────────────────── */
+  #skills { background: var(--surface-2); }
+
+  .skills-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .skill-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-card);
+    transition: all var(--transition);
+  }
+  .skill-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+  .skill-card.wide { grid-column: span 2; }
+
+  .skill-cat {
+    display: flex; align-items: center; gap: 0.6rem;
+    margin-bottom: 1rem;
+  }
+  .skill-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .skill-icon.blue { background: var(--accent-light); }
+  .skill-icon.gold { background: var(--gold-light); }
+  .skill-icon.green { background: #dcfce7; }
+  .skill-icon.purple { background: #ede9fe; }
+  .skill-icon.coral { background: #fee2e2; }
+
+  .skill-cat-name {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .skill-tag {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-sm);
+    background: var(--surface-2);
+    color: var(--ink-muted);
+    border: 1px solid var(--border);
+  }
+  .skill-tag.hi {
+    background: var(--accent-light);
+    color: var(--accent);
+    border-color: transparent;
+    font-weight: 500;
+  }
+
+  /* ── PROJECTS ───────────────────────────────────── */
+  #projects { background: var(--surface); }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: all var(--transition);
+    display: flex;
+    flex-direction: column;
+  }
+  .project-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+
+  .project-header {
+    padding: 1.75rem 1.75rem 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .project-icon {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .project-domain {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.75rem;
+    border-radius: 2rem;
+    background: var(--surface-2);
+    color: var(--ink-subtle);
+    border: 1px solid var(--border);
+  }
+
+  .project-body { padding: 1.25rem 1.75rem 1.5rem; flex: 1; display: flex; flex-direction: column; }
+
+  .project-name {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+    line-height: 1.2;
+  }
+
+  .project-desc {
+    font-size: 0.875rem;
+    color: var(--ink-muted);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+    flex: 1;
+  }
+
+  .project-highlights { list-style: none; margin-bottom: 1.25rem; }
+  .project-highlights li {
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    padding: 0.3rem 0;
+    padding-left: 1rem;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+  .project-highlights li:last-child { border-bottom: none; }
+  .project-highlights li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.75rem;
+  }
+
+  .project-impact {
+    background: var(--surface-2);
+    border-radius: var(--radius-sm);
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+    border-left: 3px solid var(--accent);
+    margin-bottom: 1.25rem;
+  }
+  .project-impact strong { color: var(--ink); }
+
+  .project-stack { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: auto; }
+  .stack-tag {
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+    background: var(--accent-light);
+    color: var(--accent);
+  }
+
+  /* ── EXPERIENCE ─────────────────────────────────── */
+  #experience { background: var(--surface-2); }
+
+  .exp-timeline { position: relative; padding-left: 2rem; }
+  .exp-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 8px; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent), var(--border));
+  }
+
+  .exp-item {
+    position: relative;
+    padding-bottom: 3rem;
+    padding-left: 2rem;
+  }
+  .exp-item:last-child { padding-bottom: 0; }
+
+  .exp-dot {
+    position: absolute;
+    left: -2.5rem;
+    top: 4px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 2px solid var(--accent);
+    transition: background var(--transition);
+  }
+  .exp-item:first-child .exp-dot { background: var(--accent); }
+
+  .exp-meta {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .exp-role {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    color: var(--ink);
+    margin-bottom: 0.15rem;
+  }
+
+  .exp-company { font-size: 0.875rem; color: var(--accent); font-weight: 500; }
+
+  .exp-period {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--ink-subtle);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 0.3rem 0.75rem;
+    border-radius: 2rem;
+    white-space: nowrap;
+  }
+
+  .exp-context {
+    font-size: 0.85rem;
+    color: var(--ink-subtle);
+    font-style: italic;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .exp-bullets { list-style: none; }
+  .exp-bullets li {
+    font-size: 0.875rem;
+    color: var(--ink-muted);
+    padding: 0.3rem 0;
+    padding-left: 1.25rem;
+    position: relative;
+    line-height: 1.6;
+  }
+  .exp-bullets li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.65rem;
+    top: 0.45rem;
+  }
+
+  /* ── ABOUT ──────────────────────────────────────── */
+  #about { background: var(--surface); }
+
+  .about-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    font-size: 1.05rem;
+    color: var(--ink-muted);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+
+  .certs { margin-top: 2rem; }
+  .cert-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+  .cert-item {
+    display: flex; align-items: center; gap: 0.75rem;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    color: var(--ink-muted);
+  }
+  .cert-badge {
+    width: 28px; height: 28px;
+    border-radius: 6px;
+    background: var(--accent-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .value-card {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    transition: all var(--transition);
+  }
+  .value-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); background: var(--surface); }
+
+  .value-icon { font-size: 1.25rem; margin-bottom: 0.6rem; }
+  .value-title { font-weight: 500; font-size: 0.875rem; color: var(--ink); margin-bottom: 0.3rem; }
+  .value-desc { font-size: 0.8rem; color: var(--ink-subtle); line-height: 1.5; }
+
+  /* ── CONTACT ────────────────────────────────────── */
+  #contact {
+    background: var(--ink);
+    color: var(--surface);
+    text-align: center;
+  }
+
+  #contact .section-title { color: var(--surface); }
+  #contact .section-title em { color: #60a5fa; }
+
+  .contact-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.6);
+    margin: 1rem auto 2.5rem;
+    max-width: 480px;
+    line-height: 1.7;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all var(--transition);
+  }
+  .contact-link.primary {
+    background: #3b82f6;
+    color: white;
+  }
+  .contact-link.primary:hover { background: #2563eb; transform: translateY(-1px); }
+  .contact-link.ghost {
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.85);
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+  .contact-link.ghost:hover { background: rgba(255,255,255,0.18); transform: translateY(-1px); }
+
+  .footer-note {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.35);
+  }
+
+  /* ── ANIMATIONS ─────────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-up {
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards;
+  }
+
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+  .delay-4 { animation-delay: 0.4s; }
+  .delay-5 { animation-delay: 0.5s; }
+
+  /* ── RESPONSIVE ─────────────────────────────────── */
+  @media (max-width: 768px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .skills-layout { grid-template-columns: 1fr; }
+    .skill-card.wide { grid-column: span 1; }
+    .about-layout { grid-template-columns: 1fr; gap: 3rem; }
+    .nav-links { display: none; }
+    .hero-stats { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-stats { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Clare Rani Augustine</a>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="nav-cta">Let's talk</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-line"></div>
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow fade-up">Available for opportunities in Vancouver, BC</div>
+      <h1 class="hero-name fade-up delay-1">
+        Clare Rani<br><em>Augustine</em>
+      </h1>
+      <p class="hero-title fade-up delay-2">Front-End Developer &nbsp;·&nbsp; 9+ Years Experience</p>
+      <p class="hero-desc fade-up delay-3">
+        Building scalable, accessible React and TypeScript applications for enterprise fintech, government, and IoT platforms. Focused on performance, clean architecture, and meaningful user experiences.
+      </p>
+      <div class="hero-actions fade-up delay-4">
+        <a href="#projects" class="btn btn-primary">View projects</a>
+        <a href="https://my-portfolio-cra.vercel.app/Clare_Resume.pdf" class="btn btn-ghost" target="_blank">Download résumé</a>
+      </div>
+
+      <div class="hero-stats fade-up delay-5">
+        <div class="stat-item">
+          <div class="stat-num">9+</div>
+          <div class="stat-label">Years experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">30%</div>
+          <div class="stat-label">Performance lift</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">$100B+</div>
+          <div class="stat-label">Transactions supported</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero visual cards -->
+    <div class="hero-visual fade-up delay-3">
+      <div class="hero-card">
+        <div class="hero-card-label">Engineering impact</div>
+        <div class="metric-row">
+          <div class="metric">
+            <div class="metric-val">30% <span>↑</span></div>
+            <div class="metric-desc">Platform responsiveness</div>
+          </div>
+          <div class="metric">
+            <div class="metric-val">25% <span>↓</span></div>
+            <div class="metric-desc">Regression defects</div>
+          </div>
+          <div class="metric">
+            <div class="metric-val">35% <span>↑</span></div>
+            <div class="metric-desc">Transaction success</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-card-label">Core technology stack</div>
+        <div class="tech-pill-row">
+          <span class="tech-pill accent">React</span>
+          <span class="tech-pill accent">TypeScript</span>
+          <span class="tech-pill accent">Redux</span>
+          <span class="tech-pill">Node.js</span>
+          <span class="tech-pill">Jest</span>
+          <span class="tech-pill">React Testing Library</span>
+          <span class="tech-pill">AWS</span>
+          <span class="tech-pill">CI/CD</span>
+          <span class="tech-pill">WCAG</span>
+          <span class="tech-pill">GitHub Copilot</span>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-card-label">Domain expertise</div>
+        <div class="tech-pill-row">
+          <span class="tech-pill">Enterprise Fintech</span>
+          <span class="tech-pill">Digital Banking</span>
+          <span class="tech-pill">IoT Platforms</span>
+          <span class="tech-pill">Government Systems</span>
+          <span class="tech-pill">Supply Chain</span>
+          <span class="tech-pill">eCommerce</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT STRIP -->
+<section id="impact">
+  <div class="impact-grid">
+    <div class="impact-item">
+      <div class="impact-num"><em>30%</em></div>
+      <div class="impact-text">Improved enterprise platform responsiveness through Redux state management refactoring and render optimization</div>
+    </div>
+    <div class="impact-item">
+      <div class="impact-num"><em>25%</em></div>
+      <div class="impact-text">Reduced regression defects by introducing structured unit testing with Jest and React Testing Library</div>
+    </div>
+    <div class="impact-item">
+      <div class="impact-num"><em>35%</em></div>
+      <div class="impact-text">Increased payment transaction success rates via robust backend API integrations</div>
+    </div>
+    <div class="impact-item">
+      <div class="impact-num"><em>$100B+</em></div>
+      <div class="impact-text">Commercial mortgage volume supported across enterprise lending platforms at Intellifi</div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Technical skills</div>
+      <h2 class="section-title">Tools I build <em>with</em></h2>
+      <p class="section-sub">Full-stack fluency with a front-end focus — React, TypeScript, and the full ecosystem around them.</p>
+    </div>
+
+    <div class="skills-layout">
+      <div class="skill-card">
+        <div class="skill-cat">
+          <div class="skill-icon blue">⚛️</div>
+          <span class="skill-cat-name">Front-End</span>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag hi">React</span>
+          <span class="skill-tag hi">TypeScript</span>
+          <span class="skill-tag hi">JavaScript ES6+</span>
+          <span class="skill-tag">Angular</span>
+          <span class="skill-tag">HTML5</span>
+          <span class="skill-tag">CSS3 / SASS</span>
+          <span class="skill-tag">Material UI</span>
+          <span class="skill-tag">Bootstrap</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-cat">
+          <div class="skill-icon purple">🏗️</div>
+          <span class="skill-cat-name">State & Architecture</span>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag hi">Redux</span>
+          <span class="skill-tag hi">React Query</span>
+          <span class="skill-tag">Micro-Frontend Architecture</span>
+          <span class="skill-tag">REST APIs</span>
+          <span class="skill-tag">Component Libraries</span>
+          <span class="skill-tag">MVC</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-cat">
+          <div class="skill-icon green">🧪</div>
+          <span class="skill-cat-name">Testing & Quality</span>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag hi">Jest</span>
+          <span class="skill-tag hi">React Testing Library</span>
+          <span class="skill-tag">Cypress</span>
+          <span class="skill-tag">TDD</span>
+          <span class="skill-tag">ESLint</span>
+          <span class="skill-tag">Code Reviews</span>
+          <span class="skill-tag">Unit Testing</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-cat">
+          <div class="skill-icon gold">⚡</div>
+          <span class="skill-cat-name">Performance & Accessibility</span>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag hi">WCAG Compliance</span>
+          <span class="skill-tag">Performance Optimization</span>
+          <span class="skill-tag">Lazy Loading</span>
+          <span class="skill-tag">Code Splitting</span>
+          <span class="skill-tag">Web Vitals</span>
+          <span class="skill-tag">ARIA</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-cat">
+          <div class="skill-icon coral">🚀</div>
+          <span class="skill-cat-name">DevOps & Tooling</span>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag hi">CI/CD Pipelines</span>
+          <span class="skill-tag">Jenkins</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Webpack / Babel</span>
+          <span class="skill-tag">Vercel</span>
+          <span class="skill-tag">GitHub Copilot</span>
+          <span class="skill-tag">Agile / Scrum</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-cat">
+          <div class="skill-icon blue">☁️</div>
+          <span class="skill-cat-name">Backend & Cloud</span>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">Express</span>
+          <span class="skill-tag">MongoDB</span>
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">AWS S3 / EC2</span>
+          <span class="skill-tag">GCP</span>
+          <span class="skill-tag">Firebase</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Selected projects</div>
+      <h2 class="section-title">Things I've <em>shipped</em></h2>
+      <p class="section-sub">Enterprise-scale systems across fintech, government, IoT, and eCommerce — built for reliability, accessibility, and scale.</p>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- Project 1 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-icon" style="background:#e8effd; font-size:1.3rem;">🏦</div>
+          <span class="project-domain">Fintech · Enterprise</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-name">Commercial Lending Platform</h3>
+          <p class="project-desc">Enterprise-scale mortgage workflow automation platform supporting underwriting, approvals, alerts, risk monitoring, and document lifecycle management for Canada's top lenders.</p>
+          <ul class="project-highlights">
+            <li>Modular React architecture for complex multi-stage workflows</li>
+            <li>Redux-based state management for large financial datasets</li>
+            <li>Rendering optimizations reducing re-renders by 30%</li>
+            <li>CI/CD integration with backend and DevOps teams</li>
+            <li>Jest + RTL unit testing reducing regression by 25%</li>
+          </ul>
+          <div class="project-impact"><strong>Impact:</strong> Processing $100B+ in commercial mortgages across Canada's top lenders</div>
+          <div class="project-stack">
+            <span class="stack-tag">React</span>
+            <span class="stack-tag">TypeScript</span>
+            <span class="stack-tag">Redux</span>
+            <span class="stack-tag">REST APIs</span>
+            <span class="stack-tag">Jest</span>
+            <span class="stack-tag">CI/CD</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-icon" style="background:#dcfce7; font-size:1.3rem;">🏛️</div>
+          <span class="project-domain">Government · Public</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-name">Government Application Portal</h3>
+          <p class="project-desc">Multi-step public-facing portal for housing-related applications, collecting structured data based on government eligibility and policy criteria. Migrated from legacy JS to React.</p>
+          <ul class="project-highlights">
+            <li>7-step dynamic form workflow with validation and state persistence</li>
+            <li>Business-rule-driven conditional rendering</li>
+            <li>Full WCAG accessibility compliance for public usability</li>
+            <li>Legacy JS to React migration improving maintainability</li>
+          </ul>
+          <div class="project-impact"><strong>Impact:</strong> Modernized legacy workflow into scalable React architecture; improved long-term extensibility</div>
+          <div class="project-stack">
+            <span class="stack-tag">React</span>
+            <span class="stack-tag">TypeScript</span>
+            <span class="stack-tag">WCAG</span>
+            <span class="stack-tag">Form Architecture</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-icon" style="background:#fef3c7; font-size:1.3rem;">🌡️</div>
+          <span class="project-domain">IoT · Real-time</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-name">HVAC Intelligence Portal</h3>
+          <p class="project-desc">IoT-based monitoring portal for HVAC operational issues, serving contractors, field engineers, and customers with real-time sensor data and predictive maintenance alerts.</p>
+          <ul class="project-highlights">
+            <li>Multi-role system: Super Admin, Contractors, Field Engineers, Customers</li>
+            <li>Sensor data visualization dashboards with live updates</li>
+            <li>Issue detection and configurable alert notifications</li>
+            <li>Secure RESTful service integrations</li>
+          </ul>
+          <div class="project-impact"><strong>Impact:</strong> Enabled predictive maintenance and reduced system downtime</div>
+          <div class="project-stack">
+            <span class="stack-tag">React</span>
+            <span class="stack-tag">IoT Integration</span>
+            <span class="stack-tag">REST APIs</span>
+            <span class="stack-tag">Role-based Auth</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-icon" style="background:#ede9fe; font-size:1.3rem;">🏢</div>
+          <span class="project-domain">Enterprise · Internal Tool</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-name">WINGS — Employee Operations Tool</h3>
+          <p class="project-desc">Internal enterprise platform supporting Admin, Manager, and Operational Staff roles for workflow tracking, operational data, and role-based process management.</p>
+          <ul class="project-highlights">
+            <li>Role-based dashboards with secure authentication flows</li>
+            <li>Real-time operational data via REST API integration</li>
+            <li>Multi-role access control with granular permissions</li>
+          </ul>
+          <div class="project-impact"><strong>Impact:</strong> Increased operational transparency and reduced manual processing overhead</div>
+          <div class="project-stack">
+            <span class="stack-tag">React</span>
+            <span class="stack-tag">TypeScript</span>
+            <span class="stack-tag">REST APIs</span>
+            <span class="stack-tag">Auth / RBAC</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-icon" style="background:#fee2e2; font-size:1.3rem;">🍔</div>
+          <span class="project-domain">eCommerce · Consumer</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-name">Multi-Vendor Food Ordering Platform</h3>
+          <p class="project-desc">Cross-platform food ordering system with web-based vendor management, dynamic menu modules, real-time order tracking, and integrated payment processing.</p>
+          <ul class="project-highlights">
+            <li>Vendor and admin web portal with dynamic menu management</li>
+            <li>Payment gateway integration improving transaction success by 35%</li>
+            <li>Real-time order tracking with live status updates</li>
+            <li>Hosted on Firebase with GCP data pipelines</li>
+          </ul>
+          <div class="project-impact"><strong>Impact:</strong> 35% improvement in transaction success rates through robust payment integration</div>
+          <div class="project-stack">
+            <span class="stack-tag">React</span>
+            <span class="stack-tag">Firebase</span>
+            <span class="stack-tag">GCP</span>
+            <span class="stack-tag">Payment APIs</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 6 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-icon" style="background:#e8effd; font-size:1.3rem;">🌾</div>
+          <span class="project-domain">Government · Supply Chain</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-name">Supply Chain & Allocation System</h3>
+          <p class="project-desc">Government-grade system managing food grain allocation across statewide distribution networks, supporting E-POS integrations and inspector workflows at scale.</p>
+          <ul class="project-highlights">
+            <li>Monitoring dashboards and statewide allocation tracking</li>
+            <li>Web services for E-POS terminals and field inspectors</li>
+            <li>Payment gateway and high-volume user scalability</li>
+          </ul>
+          <div class="project-impact"><strong>Impact:</strong> Supported statewide public distribution operations at high user volume</div>
+          <div class="project-stack">
+            <span class="stack-tag">React</span>
+            <span class="stack-tag">Web Services</span>
+            <span class="stack-tag">PostgreSQL</span>
+            <span class="stack-tag">High Scale</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Work history</div>
+      <h2 class="section-title">Where I've <em>worked</em></h2>
+      <p class="section-sub">9+ years across fintech, banking, IoT, and government — from fast-moving startups to enterprise-scale platforms.</p>
+    </div>
+
+    <div class="exp-timeline">
+
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-meta">
+          <div>
+            <div class="exp-role">Front-End Developer</div>
+            <div class="exp-company">Intellifi · Vancouver, BC</div>
+          </div>
+          <span class="exp-period">Oct 2023 – Oct 2024</span>
+        </div>
+        <p class="exp-context">Enterprise commercial lending platform processing $100B+ in Canadian mortgages — Orbit Genesis and Orbit Vantage.</p>
+        <ul class="exp-bullets">
+          <li>Led front-end development for modular React applications supporting complex multi-stage underwriting workflows</li>
+          <li>Established scalable UI architecture and Redux state management patterns for Orbit Vantage from initial setup</li>
+          <li>Introduced Jest + React Testing Library, reducing regression defects by 25%</li>
+          <li>Optimized rendering performance improving responsiveness by 30%</li>
+          <li>Collaborated with backend and DevOps on REST API integration and CI/CD pipelines</li>
+          <li>Utilized GitHub Copilot and AI-assisted tooling to improve development velocity and code quality</li>
+          <li>Participated in agile ceremonies: sprint planning, backlog refinement, daily stand-ups, retrospectives</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-meta">
+          <div>
+            <div class="exp-role">IT Analyst</div>
+            <div class="exp-company">Tata Consultancy Services · India</div>
+          </div>
+          <span class="exp-period">Oct 2021 – Jun 2023</span>
+        </div>
+        <p class="exp-context">Secure digital banking solution for a major U.S. client under strict compliance and accessibility requirements.</p>
+        <ul class="exp-bullets">
+          <li>Implemented micro-frontend architecture with React and MVC for modular, scalable banking workflows</li>
+          <li>Transformed Figma designs into WCAG-compliant UIs for large-scale user bases</li>
+          <li>Led front-end code quality initiatives — code reviews, linting, testing coverage</li>
+          <li>Collaborated with backend, QA, and product teams to integrate APIs and resolve usability issues</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-meta">
+          <div>
+            <div class="exp-role">Senior Software Engineer</div>
+            <div class="exp-company">Travancore Analytics · India</div>
+          </div>
+          <span class="exp-period">Jun 2019 – Sep 2021</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Engineered scalable front-end applications in React, Redux, Angular, and TypeScript across customer-facing and enterprise projects</li>
+          <li>Implemented SSO and LDAP authentication for enterprise-grade access control</li>
+          <li>Leveraged AWS S3 and Lambda; applied OWASP security best practices</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-meta">
+          <div>
+            <div class="exp-role">Assistant Programmer</div>
+            <div class="exp-company">SISL Infotech · India</div>
+          </div>
+          <span class="exp-period">Apr 2017 – Mar 2019</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Developed payment gateway integrations improving transaction success rates by 35%</li>
+          <li>Supported eCommerce and fintech feature delivery, QA, and deployment</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-meta">
+          <div>
+            <div class="exp-role">Junior Developer</div>
+            <div class="exp-company">Xminds Infotech · India</div>
+          </div>
+          <span class="exp-period">Oct 2015 – Mar 2017</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Built server-side and client-side code using PHP, JavaScript, HTML/CSS, MySQL, and Symfony framework</li>
+          <li>Maintained CMS-driven applications (WordPress/PHP) for enterprise clients</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-layout">
+      <div class="about-text">
+        <div class="section-header">
+          <div class="section-eyebrow">About me</div>
+          <h2 class="section-title">Developer. Problem solver.<br><em>Team player.</em></h2>
+        </div>
+
+        <p>Hi, I'm Clare — a front-end developer with 9+ years of experience building scalable, high-performance web applications across fintech, banking, IoT, and government platforms.</p>
+
+        <p>My core strengths are React and TypeScript, with deep experience in Redux state management, REST API integration, and micro-frontend architecture. I'm focused on writing clean, maintainable, testable code while never compromising on performance or accessibility.</p>
+
+        <p>I'm currently based in Delta, BC, and excited about opportunities in Vancouver's tech community. I thrive in collaborative, agile environments where I can contribute across the full front-end stack while working closely with backend engineers, designers, and product managers.</p>
+
+        <p>I leverage AI-assisted tools like GitHub Copilot to improve development velocity and code quality, and I'm continuously growing my engineering skills to stay current with modern practices.</p>
+
+        <div class="certs">
+          <ul class="cert-list">
+            <li class="cert-item">
+              <div class="cert-badge">☁️</div>
+              Microsoft Certified: Azure Fundamentals
+            </li>
+            <li class="cert-item">
+              <div class="cert-badge">🤖</div>
+              Databricks: Generative AI Fundamentals
+            </li>
+            <li class="cert-item">
+              <div class="cert-badge">🎓</div>
+              B.Tech Computer Science Engineering — M.G. University, India
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon">⚡</div>
+            <div class="value-title">Performance first</div>
+            <div class="value-desc">Optimizing render cycles, lazy loading, and code splitting for fast, responsive experiences.</div>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">♿</div>
+            <div class="value-title">Accessibility</div>
+            <div class="value-desc">WCAG-compliant UIs that work for every user, not just the able-bodied majority.</div>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🧪</div>
+            <div class="value-title">Test-driven</div>
+            <div class="value-desc">Jest and React Testing Library as first-class citizens, not afterthoughts.</div>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🤝</div>
+            <div class="value-title">Collaboration</div>
+            <div class="value-desc">Agile teams, code reviews, cross-functional communication — built into how I work.</div>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🏗️</div>
+            <div class="value-title">Clean architecture</div>
+            <div class="value-desc">Modular, reusable components and scalable patterns that outlast the sprint.</div>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🤖</div>
+            <div class="value-title">AI-augmented</div>
+            <div class="value-desc">Using GitHub Copilot and AI tools to ship faster without cutting corners on quality.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-eyebrow" style="color: #60a5fa;">Get in touch</div>
+    <h2 class="section-title" style="color: white;">Let's build something <em>great</em></h2>
+    <p class="contact-sub">Open to front-end developer opportunities in Vancouver, BC. Let's connect.</p>
+
+    <div class="contact-links">
+      <a href="mailto:clarerani92@gmail.com" class="contact-link primary">✉ clarerani92@gmail.com</a>
+      <a href="https://www.linkedin.com/in/clareraniaugustine" class="contact-link ghost" target="_blank">LinkedIn</a>
+      <a href="https://my-portfolio-cra.vercel.app/Clare_Resume.pdf" class="contact-link ghost" target="_blank">Download résumé</a>
+    </div>
+
+    <p class="footer-note">© 2026 Clare Rani Augustine · Delta, BC · +1 (778) 723-3782</p>
+  </div>
+</section>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.project-card, .skill-card, .exp-item, .value-card, .impact-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
